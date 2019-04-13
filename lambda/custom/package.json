@@ -1,0 +1,16 @@
+{
+  "name": "garbage-collection-calendar-skill",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryo Yamamoto",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ask-sdk-core": "^2.0.0",
+    "ask-sdk-model": "^1.0.0",
+    "moment": "^2.0.0"
+  }
+}

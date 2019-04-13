@@ -1,0 +1,85 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "ごみ出しカレンダー",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "ScheduleIntent",
+                  "slots": [
+                      {
+                          "name": "date",
+                          "type": "AMAZON.DATE"
+                      }
+                  ],
+                  "samples": [
+                      "{date}",
+                      "{date} は何の日"
+                  ]
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              }
+          ],
+          "types": [
+              {
+                  "name": "TYPE",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "ペットボトル"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "古紙・古布"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "びん・スプレー容器"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "かん"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "プラスチック製容器包装"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "粗大ごみ"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "燃やせないごみ"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "燃やせるごみ"
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
+  }
+}
