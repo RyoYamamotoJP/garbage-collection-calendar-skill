@@ -12,5 +12,8 @@
     "ask-sdk-core": "^2.0.0",
     "ask-sdk-model": "^1.0.0",
     "moment": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
   }
 }
