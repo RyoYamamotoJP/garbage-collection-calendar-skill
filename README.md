@@ -1,1 +1,1 @@
-# garbage-collection-calendar-skill
+# garbage-collection-calendar-skill [![Build Status](https://travis-ci.org/RyoYamamotoJP/garbage-collection-calendar-skill.svg?branch=master)](https://travis-ci.org/RyoYamamotoJP/garbage-collection-calendar-skill)
