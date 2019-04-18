@@ -1,6 +1,8 @@
 /* eslint-disable  func-names */
 /* eslint-disable  no-console */
 
+const SKILL_NAME = 'ごみ出しカレンダー';
+
 const Alexa = require('ask-sdk-core');
 const calendar = require('./tsukuba-north-2019');
 
@@ -13,7 +15,7 @@ const LaunchRequestHandler = {
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('ごみ出しカレンダー', speechText)
+      .withSimpleCard(SKILL_NAME, speechText)
       .getResponse();
   },
 };
@@ -30,7 +32,7 @@ const ScheduleIntentHandler = {
     const speechText = `${date}は${types}の日です。`;
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('ごみ出しカレンダー', speechText)
+      .withSimpleCard(SKILL_NAME, speechText)
       .getResponse();
   },
 };
@@ -46,7 +48,7 @@ const HelpIntentHandler = {
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('ごみ出しカレンダー', speechText)
+      .withSimpleCard(SKILL_NAME, speechText)
       .getResponse();
   },
 };
@@ -62,7 +64,7 @@ const CancelAndStopIntentHandler = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('ごみ出しカレンダー', speechText)
+      .withSimpleCard(SKILL_NAME, speechText)
       .getResponse();
   },
 };
