@@ -26,3 +26,15 @@ const alexa = vax.VirtualAlexa.Builder()
     });
   });
   
+  describe("CancelAndStopIntentHandler", () => {
+    test("cancels successfully", async () => {
+      const reply = await alexa.intend("AMAZON.CancelIntent");
+      expect(reply.response.outputSpeech.ssml).toMatch(/Goodbye!/);
+    });
+  
+    test("stops successfully", async () => {
+      const reply = await alexa.intend("AMAZON.StopIntent");
+      expect(reply.response.outputSpeech.ssml).toMatch(/Goodbye!/);
+    });
+  });
+  
