@@ -1,9 +1,23 @@
+/* eslint-disable  no-console */
+
 const vax = require("virtual-alexa");
 
 const alexa = vax.VirtualAlexa.Builder()
   .handler("index.handler")
   .interactionModelFile("../../models/ja-JP.json")
   .create();
+
+beforeAll(() => {
+  jest.spyOn(console, "log").mockImplementation(() => {});
+});
+
+beforeEach(() => {
+  console.log.mockClear();
+});
+
+afterAll(() => {
+  jest.restoreAllMocks();
+});
 
   describe("LaunchRequestHandler", () => {
     test("launches successfully", async () => {
@@ -35,6 +49,14 @@ const alexa = vax.VirtualAlexa.Builder()
     test("stops successfully", async () => {
       const reply = await alexa.intend("AMAZON.StopIntent");
       expect(reply.response.outputSpeech.ssml).toMatch(/Goodbye!/);
+    });
+  });
+
+  describe("SessionEndedRequestHandler", () => {
+    test("ends a session successfully", async () => {
+      await alexa.endSession();
+      expect(console.log).toHaveBeenCalledTimes(1);
+      expect(console.log.mock.calls[0][0]).toMatch(/Session ended/);
     });
   });
   
