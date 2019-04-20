@@ -19,3 +19,10 @@ const alexa = vax.VirtualAlexa.Builder()
     });
   });
   
+  describe("HelpIntentHandler", () => {
+    test("helps successfully", async () => {
+      const reply = await alexa.intend("AMAZON.HelpIntent");
+      expect(reply.response.outputSpeech.ssml).toMatch(/You can say hello to me!/);
+    });
+  });
+  
