@@ -16,7 +16,7 @@
           "samples": []
         },
         {
-          "name": "ScheduleIntent",
+          "name": "GetScheduleIntent",
           "slots": [
             {
               "name": "date",
