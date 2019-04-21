@@ -26,10 +26,16 @@ const GetScheduleIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'GetScheduleIntent';
   },
   handle(handlerInput) {
-    const date = handlerInput.requestEnvelope.request.intent.slots.date.value;
-    const types = calendar.garbageTypesOn(date);
+    let speechText;
 
-    const speechText = `${date}は${types}の日です。`;
+    const date = handlerInput.requestEnvelope.request.intent.slots.date.value;
+    if (!date) {
+      speechText = 'すみません、収集日を聞き取れませんでした。';
+    } else {
+      const types = calendar.garbageTypesOn(date);
+      speechText = `${date}は${types}の日です。`;
+    }
+
     return handlerInput.responseBuilder
       .speak(speechText)
       .withSimpleCard(SKILL_NAME, speechText)
