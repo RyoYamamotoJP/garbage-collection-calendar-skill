@@ -35,7 +35,11 @@ const GetScheduleIntentHandler = {
       speechText = 'すみません、収集日を理解できませんでした。';
     } else {
       const types = calendar.garbageTypesOn(date);
-      speechText = `${date}は${types}の日です。`;
+      if (!types) {
+        speechText = 'ごめんなさい、その日はわかりません。';
+      } else {
+        speechText = `${date}は${types}の日です。`;
+      }
     }
 
     return handlerInput.responseBuilder
