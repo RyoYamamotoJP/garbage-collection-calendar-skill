@@ -31,6 +31,8 @@ const GetScheduleIntentHandler = {
     const date = handlerInput.requestEnvelope.request.intent.slots.date.value;
     if (!date) {
       speechText = 'すみません、収集日を聞き取れませんでした。';
+    } else if (!Date.parse(date)) {
+      speechText = 'すみません、収集日を理解できませんでした。';
     } else {
       const types = calendar.garbageTypesOn(date);
       speechText = `${date}は${types}の日です。`;
