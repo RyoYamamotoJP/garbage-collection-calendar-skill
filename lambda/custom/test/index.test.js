@@ -26,9 +26,9 @@ describe("LaunchRequestHandler", () => {
   });
 });
 
-describe("ScheduleIntentHandler", () => {
+describe("GetScheduleIntentHandler", () => {
   test("gets a schedule successfully", async () => {
-    const reply = await alexa.intend("ScheduleIntent", { date: "2019-04-01" });
+    const reply = await alexa.intend("GetScheduleIntent", { date: "2019-04-01" });
     expect(reply.response.outputSpeech.ssml).toMatch(/2019-04-01は燃やせるごみの日です。/);
   });
 });

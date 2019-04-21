@@ -20,10 +20,10 @@ const LaunchRequestHandler = {
   },
 };
 
-const ScheduleIntentHandler = {
+const GetScheduleIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'ScheduleIntent';
+      && handlerInput.requestEnvelope.request.intent.name === 'GetScheduleIntent';
   },
   handle(handlerInput) {
     const date = handlerInput.requestEnvelope.request.intent.slots.date.value;
@@ -99,7 +99,7 @@ const skillBuilder = Alexa.SkillBuilders.custom();
 exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
-    ScheduleIntentHandler,
+    GetScheduleIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler
