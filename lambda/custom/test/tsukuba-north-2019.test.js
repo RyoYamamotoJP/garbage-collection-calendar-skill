@@ -27,7 +27,8 @@ describe.each([
   ["2019-04-10", ["古紙", "古布"]],
   ["2019-04-12", ["かん"]],
   ["2019-12-28", ["燃やせるごみ"]],
-  ["2019-12-30", ["収集なし"]]
+  ["2019-12-30", ["収集なし"]],
+  ["2020-04-01", undefined]
 ])(".garbageTypesOn(%p)", (date, expected) => {
   test(`returns ${expected}`, () => {
     expect(calendar.garbageTypesOn(date)).toEqual(expected);
