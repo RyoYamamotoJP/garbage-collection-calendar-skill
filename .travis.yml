@@ -4,7 +4,7 @@ node_js:
 install:
   - npm install --prefix lambda/custom
 script:
-  - npm test --prefix lambda/custom
+  - npm test --prefix lambda/custom && cat lambda/custom/coverage/lcov.info | lambda/custom/node_modules/coveralls/bin/coveralls.js
 notifications:
   slack:
     secure: a3Ok5M6PTqAlsdyy/0naPmIYT/wYzmOBsaGxPoeoVJTHFGgzoazAnRssTZinXnCgBgJdfj68gOc4tLp5Vu5gTY3qbVK2vNztykdayNWa+2knTLwkwnZ9ju3zEFzDN77SpQlnTj2mraAUOdtW61EhBJnZxBQqE46dR5O2Nrdn1LQOKqy997Q1gCOnauko0mdku6eevHEBvCKEs+swvqZvByZj+0+ewwIWIGWNxNLY0qTHzzs/bZapMNcN5NjgNbox8PYzCRj9zLTdlDyOljfGty+ggeJoer/KiXqJbpsHCbD52yaJ3Q8JPbA3nHq3cMALoEURr/Y5eFEAi2J3pGe3kkgAZEpxreHTFcsvQKhYP0CyaWSdQyG34Nw+DdJx/Eo4WVqpNp7AIRXWRjroFp0pF12ZiWTQx2pBe/JF8iHUvyUtTnaM/RdhVTgPdop/01jjBBoEatUiimNJCL7eeT1jhT3Ia+2c3vsdV74a01HD9/XI2v9A9uKm0ltaKnROOZk55L67Rx9FOFJadvP5NVJK1djvEr8C0qQJM8vaMLksB2uc4UUWhqxllMxtRKiPw1IAa0ZO2Auzfy5W9hPgxX3WUBtR2pbJAoBOqURx8o9cBHzi/mEVu4OmtAYBHYMiXhSjpqVTsPlHmLXW4Hy3eBtdttO19qVLs9dZKfVrRzOY5Ig=
