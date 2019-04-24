@@ -32,15 +32,15 @@ describe('Calendar("tsukuba", "north")', () => {
     ["2019-12-28", ["燃やせるごみ"]],
     ["2019-12-30", ["収集なし"]]
   ])(".on(%p)", (date, expected) => {
-    test(`returns ${expected}`, () => {
-      expect(calendar.on(date)).toEqual(expected);
-    });
+    test(`returns ${expected}`, () =>
+      expect(calendar.on(date)).toEqual(expected)
+    );
   });
 
   describe('.on("2019-03-31")', () => {
-    test("returns undefined", () => {
-      expect(calendar.on("2019-03-31")).toBeUndefined();
-    });
+    test("returns undefined", () =>
+      expect(calendar.on("2019-03-31")).toBeUndefined()
+    );
   });
 
   describe('.on("2019-04-XX")', () => {
@@ -53,9 +53,7 @@ describe('Calendar("tsukuba", "north")', () => {
 });
 
 describe('Calendar("foo", "bar")', () => {
-  test("throws Error", () => {
-    expect(() => {
-      new Calendar("foo", "bar")
-    }).toThrow(/no such file or directory/i);
-  });
+  test("throws Error", () =>
+    expect(() => new Calendar("foo", "bar")).toThrow(/no such file or directory/i)
+  );
 });
