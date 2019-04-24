@@ -1,5 +1,6 @@
 /* eslint-disable  func-names */
 /* eslint-disable  no-console */
+"use strict";
 
 const SKILL_NAME = "ごみ出しカレンダー";
 
