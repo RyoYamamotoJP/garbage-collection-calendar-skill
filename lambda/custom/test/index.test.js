@@ -77,7 +77,7 @@ describe("SessionEndedRequestHandler", () => {
   test("ends a session successfully", async () => {
     await alexa.endSession();
     expect(console.log).toHaveBeenCalledTimes(1);
-    expect(console.log.mock.calls[0][0]).toMatch(/Session ended/);
+    expect(console.log.mock.calls[0][0]).toMatch(/session ended/i);
   });
 });
 
@@ -86,6 +86,6 @@ describe("ErrorHandler", () => {
     jest.spyOn(JSON, "parse").mockImplementation(() => {});
     await alexa.intend("GetScheduleIntent", { date: "2019-04-01" });
     expect(console.log).toHaveBeenCalledTimes(1);
-    expect(console.log.mock.calls[0][0]).toMatch(/Error handled/);
+    expect(console.log.mock.calls[0][0]).toMatch(/error handled/i);
   });
 });
