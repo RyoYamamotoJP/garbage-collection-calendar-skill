@@ -4,7 +4,7 @@
 const SKILL_NAME = 'ごみ出しカレンダー';
 
 const Alexa = require('ask-sdk-core');
-const calendar = require('./tsukuba-north-2019');
+const Calendar = require('./calendar');
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -34,7 +34,8 @@ const GetScheduleIntentHandler = {
     } else if (!Date.parse(date)) {
       speechText = 'すみません、収集日を理解できませんでした。';
     } else {
-      const types = calendar.garbageTypesOn(date);
+      const calendar = new Calendar('tsukuba', 'north');
+      const types = calendar.on(date);
       if (!types) {
         speechText = 'ごめんなさい、その日はわかりません。';
       } else {
