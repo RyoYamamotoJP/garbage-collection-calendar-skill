@@ -22,7 +22,7 @@ afterAll(() => {
 describe("LaunchRequestHandler", () => {
   test("launches successfully", async () => {
     const reply = await alexa.launch();
-    expect(reply.response.outputSpeech.ssml).toMatch(/知りたいごみ収集日はいつですか?/);
+    expect(reply.response.outputSpeech.ssml).toMatch(/知りたいごみ収集日はいつですか\?/);
   });
 });
 
