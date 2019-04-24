@@ -15,14 +15,6 @@ afterAll(() => {
   jest.restoreAllMocks();
 });
 
-describe('Calendar("foo", "bar")', () => {
-  test("throws Error", () => {
-    expect(() => {
-      new Calendar("foo", "bar")
-    }).toThrow(/no such file or directory/);
-  });
-});
-
 describe('Calendar("tsukuba", "north")', () => {
   const calendar = new Calendar("tsukuba", "north");
 
@@ -57,5 +49,13 @@ describe('Calendar("tsukuba", "north")', () => {
       expect(console.warn).toHaveBeenCalledTimes(1);
       expect(console.warn.mock.calls[0][0]).toMatch(/Deprecation warning/);
     });
+  });
+});
+
+describe('Calendar("foo", "bar")', () => {
+  test("throws Error", () => {
+    expect(() => {
+      new Calendar("foo", "bar")
+    }).toThrow(/no such file or directory/);
   });
 });
