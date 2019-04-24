@@ -13,17 +13,16 @@ module.exports = class Calendar {
   on(date) {
     const momentDate = moment(date);
 
-    for (const calendar of this.calendars) {
-      if (momentDate.isBetween(calendar.startDate, calendar.endDate, null, "[]")) {
-        const dateString = momentDate.format("YYYY-MM-DD");
-        const dayOfWeek = momentDate.format("dddd").toLowerCase();
-        const weekdayOfMonth = Math.floor((momentDate.date() - 1) / 7);
-        const irregularDate = calendar.irregularDates[dateString];
-        const regularSchedule = calendar.regularSchedule[dayOfWeek][weekdayOfMonth];
-        return irregularDate || regularSchedule;
-      }
-    }
+    const calendar = this.calendars.find(calendar =>
+      momentDate.isBetween(calendar.startDate, calendar.endDate, null, "[]")
+    );
+    if (!calendar) return undefined;
 
-    return undefined;
+    const dateString = momentDate.format("YYYY-MM-DD");
+    const dayOfWeek = momentDate.format("dddd").toLowerCase();
+    const weekdayOfMonth = Math.floor((momentDate.date() - 1) / 7);
+    const irregularDate = calendar.irregularDates[dateString];
+    const regularSchedule = calendar.regularSchedule[dayOfWeek][weekdayOfMonth];
+    return irregularDate || regularSchedule;
   }
 }
