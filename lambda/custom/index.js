@@ -1,17 +1,17 @@
 /* eslint-disable  func-names */
 /* eslint-disable  no-console */
 
-const SKILL_NAME = 'ごみ出しカレンダー';
+const SKILL_NAME = "ごみ出しカレンダー";
 
-const Alexa = require('ask-sdk-core');
-const Calendar = require('./calendar');
+const Alexa = require("ask-sdk-core");
+const Calendar = require("./calendar");
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
+    return handlerInput.requestEnvelope.request.type === "LaunchRequest";
   },
   handle(handlerInput) {
-    const speechText = '知りたいごみ収集日はいつですか?';
+    const speechText = "知りたいごみ収集日はいつですか?";
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
@@ -22,22 +22,22 @@ const LaunchRequestHandler = {
 
 const GetScheduleIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'GetScheduleIntent';
+    return handlerInput.requestEnvelope.request.type === "IntentRequest"
+      && handlerInput.requestEnvelope.request.intent.name === "GetScheduleIntent";
   },
   handle(handlerInput) {
     let speechText;
 
     const date = handlerInput.requestEnvelope.request.intent.slots.date.value;
     if (!date) {
-      speechText = 'すみません、収集日を聞き取れませんでした。';
+      speechText = "すみません、収集日を聞き取れませんでした。";
     } else if (!Date.parse(date)) {
-      speechText = 'すみません、収集日を理解できませんでした。';
+      speechText = "すみません、収集日を理解できませんでした。";
     } else {
-      const calendar = new Calendar('tsukuba', 'north');
+      const calendar = new Calendar("tsukuba", "north");
       const types = calendar.on(date);
       if (!types) {
-        speechText = 'ごめんなさい、その日はわかりません。';
+        speechText = "ごめんなさい、その日はわかりません。";
       } else {
         speechText = `${date}は${types}の日です。`;
       }
@@ -52,11 +52,11 @@ const GetScheduleIntentHandler = {
 
 const HelpIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
+    return handlerInput.requestEnvelope.request.type === "IntentRequest"
+      && handlerInput.requestEnvelope.request.intent.name === "AMAZON.HelpIntent";
   },
   handle(handlerInput) {
-    const speechText = 'You can say hello to me!';
+    const speechText = "You can say hello to me!";
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -68,12 +68,12 @@ const HelpIntentHandler = {
 
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
-        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+    return handlerInput.requestEnvelope.request.type === "IntentRequest"
+      && (handlerInput.requestEnvelope.request.intent.name === "AMAZON.CancelIntent"
+        || handlerInput.requestEnvelope.request.intent.name === "AMAZON.StopIntent");
   },
   handle(handlerInput) {
-    const speechText = 'Goodbye!';
+    const speechText = "Goodbye!";
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -84,7 +84,7 @@ const CancelAndStopIntentHandler = {
 
 const SessionEndedRequestHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
+    return handlerInput.requestEnvelope.request.type === "SessionEndedRequest";
   },
   handle(handlerInput) {
     console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
@@ -101,8 +101,8 @@ const ErrorHandler = {
     console.log(`Error handled: ${error.message}`);
 
     return handlerInput.responseBuilder
-      .speak('Sorry, I can\'t understand the command. Please say again.')
-      .reprompt('Sorry, I can\'t understand the command. Please say again.')
+      .speak("Sorry, I can't understand the command. Please say again.")
+      .reprompt("Sorry, I can't understand the command. Please say again.")
       .getResponse();
   },
 };
