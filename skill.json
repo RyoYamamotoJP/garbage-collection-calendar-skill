@@ -6,8 +6,8 @@
           "summary": "Sample Short Description",
           "examplePhrases": [
             "アレクサ、ごみ出しカレンダーを開いて",
-            "hello",
-            "help"
+            "今日は何の日",
+            "ヘルプ"
           ],
           "name": "ごみ出しカレンダー",
           "description": "Sample Full Description"
