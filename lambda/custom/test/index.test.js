@@ -8,7 +8,7 @@ const alexa = vax.VirtualAlexa.Builder()
   .create();
 
 beforeAll(() => {
-  jest.spyOn(console, "log").mockImplementation(() => {});
+  jest.spyOn(console, "log").mockImplementation(() => { });
 });
 
 beforeEach(() => {
@@ -57,19 +57,19 @@ describe("GetScheduleIntentHandler", () => {
 describe("HelpIntentHandler", () => {
   test("helps successfully", async () => {
     const reply = await alexa.intend("AMAZON.HelpIntent");
-    expect(reply.response.outputSpeech.ssml).toMatch(/You can say hello to me!/);
+    expect(reply.response.outputSpeech.ssml).toMatch(/今日は何の日、と言ってみてください。/);
   });
 });
 
 describe("CancelAndStopIntentHandler", () => {
   test("cancels successfully", async () => {
     const reply = await alexa.intend("AMAZON.CancelIntent");
-    expect(reply.response.outputSpeech.ssml).toMatch(/Goodbye!/);
+    expect(reply.response.outputSpeech.ssml).toMatch(/さようなら。/);
   });
 
   test("stops successfully", async () => {
     const reply = await alexa.intend("AMAZON.StopIntent");
-    expect(reply.response.outputSpeech.ssml).toMatch(/Goodbye!/);
+    expect(reply.response.outputSpeech.ssml).toMatch(/さようなら。/);
   });
 });
 
@@ -83,9 +83,9 @@ describe("SessionEndedRequestHandler", () => {
 
 describe("ErrorHandler", () => {
   test("handles an error", async () => {
-    jest.spyOn(JSON, "parse").mockImplementation(() => {});
+    jest.spyOn(JSON, "parse").mockImplementation(() => { });
     await alexa.intend("GetScheduleIntent", { date: "2019-04-01" });
     expect(console.log).toHaveBeenCalledTimes(1);
-    expect(console.log.mock.calls[0][0]).toMatch(/error handled/i);
+    expect(console.log.mock.calls[0][0]).toMatch(/処理されたエラー/);
   });
 });
