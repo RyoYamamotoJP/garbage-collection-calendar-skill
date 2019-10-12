@@ -77,7 +77,7 @@ describe("SessionEndedRequestHandler", () => {
   test("ends a session successfully", async () => {
     await alexa.endSession();
     expect(console.log).toHaveBeenCalledTimes(1);
-    expect(console.log.mock.calls[0][0]).toMatch(/session ended/i);
+    expect(console.log.mock.calls[0][0]).toMatch(/次の理由でセッションが終了しました/i);
   });
 });
 
