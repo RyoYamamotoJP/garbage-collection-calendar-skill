@@ -43,7 +43,7 @@ describe("GetScheduleIntentHandler", () => {
 
   describe("with no scheduled date", () => {
     test("outputs ごめんなさい、その日はわかりません。", async () => {
-      const reply = await alexa.intend("GetScheduleIntent", { date: "2020-04-01" });
+      const reply = await alexa.intend("GetScheduleIntent", { date: "2021-04-01" });
       expect(reply.response.outputSpeech.ssml).toMatch(/ごめんなさい、その日はわかりません。/);
     });
   });
